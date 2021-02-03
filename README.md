@@ -14,3 +14,10 @@ docker run --rm -v "$PWD":/usr/src/app -w /usr/src/app openjdk:15 bash -c "javac
 docker build -t singlefileapp -f SingleFile .
 docker run --rm singlefileapp
 ```
+
+## Compile and run using multi-stage builds
+
+```
+docker build -t multistageapp -f MultiStage .
+docker run --rm multistageapp
+```

@@ -1,0 +1,9 @@
+FROM openjdk:11-jdk AS builder
+COPY . /usr/src/app
+WORKDIR /usr/src/app
+RUN javac HelloWorld.java
+
+FROM openjdk:11-jre
+WORKDIR /app
+COPY --from=builder /usr/src/app/HelloWorld.class /app/HelloWorld.class
+CMD ["java", "HelloWorld"]
